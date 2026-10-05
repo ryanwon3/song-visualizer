@@ -1,0 +1,31 @@
+{
+  "name": "song-visualizer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Paste a YouTube or Spotify link and get the song's audio in the browser, ready to visualize.",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "predev": "node scripts/get-yt-dlp.mjs --if-missing",
+    "dev": "tsx watch --clear-screen=false server/index.ts",
+    "build": "tsc --noEmit && vite build",
+    "prestart": "node scripts/get-yt-dlp.mjs --if-missing",
+    "start": "tsx server/index.ts --production",
+    "setup": "node scripts/get-yt-dlp.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "tsx": "^4.23.15"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  }
+}

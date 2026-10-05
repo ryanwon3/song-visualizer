@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070809" />
+    <title>Song Visualizer</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070809'/%3E%3Cpath d='M7 20v-8M12 24V8M17 21v-10M22 18v-4M26 22V10' stroke='%23f0c765' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="app-bar">
+      <span class="wordmark">Song Visualizer</span>
+    </header>
+
+    <main class="stage">
+      <section class="intake" aria-labelledby="intake-title">
+        <h1 id="intake-title">Paste a song link</h1>
+        <p class="hint">A YouTube video or a Spotify track. Spotify songs are matched to the same recording on YouTube.</p>
+        <form id="link-form" class="link-form">
+          <label class="visually-hidden" for="link-input">YouTube or Spotify link</label>
+          <input
+            id="link-input"
+            name="url"
+            type="text"
+            inputmode="url"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="https://open.spotify.com/track/… or https://youtu.be/…"
+            required
+          />
+          <button id="load-button" type="submit">
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="label">Load song</span>
+          </button>
+        </form>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="song" class="song" hidden aria-label="Loaded song">
+        <div class="artwork"><img id="song-artwork" alt="" /></div>
+        <div class="details">
+          <h2 id="song-title"></h2>
+          <p id="song-artist" class="artist"></p>
+          <p id="song-album" class="album"></p>
+          <p class="sources">
+            <a id="song-source" target="_blank" rel="noreferrer"></a>
+            <a id="song-youtube" target="_blank" rel="noreferrer">Audio from YouTube</a>
+          </p>
+        </div>
+        <audio id="player" controls preload="auto"></audio>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

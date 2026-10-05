@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.vite/
+
+# Downloaded yt-dlp binary (npm run setup) and cached songs
+bin/
+.cache/
+
+.env
+.env.*
+!.env.example
